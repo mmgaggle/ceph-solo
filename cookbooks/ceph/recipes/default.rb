@@ -113,7 +113,7 @@ apache_packages = %w{
 
 apache_packages.each do |pkg|
   package pkg do
-    action: install 
+    action :install 
   end
 end
 
