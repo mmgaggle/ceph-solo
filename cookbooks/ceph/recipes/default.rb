@@ -7,8 +7,29 @@ apt_repository "ceph" do
   key "https://ceph.com/git/?p=ceph.git;a=blob_plain;f=keys/release.asc"
 end
 
-apt_repository "ceph" do
+apt_repository "ceph-gitbuilder" do
   uri "http://gitbuilder.ceph.com/ceph-deb-precise-x86_64-basic/ref/master"
+  distribution "precise"
+  components ["main"]
+  key "https://ceph.com/git/?p=ceph.git;a=blob_plain;f=keys/release.asc"
+end
+
+apt_repository "ceph-extras" do
+  uri "http://ceph.com/packages/ceph-extras/debian"
+  distribution "precise"
+  components ["main"]
+  key "https://ceph.com/git/?p=ceph.git;a=blob_plain;f=keys/release.asc"
+end
+
+apt_repository "ceph-apache2" do
+  uri "http://gitbuilder.ceph.com/apache2-deb-precise-x86_64-basic/ref/master"
+  distribution "precise"
+  components ["main"]
+  key "https://ceph.com/git/?p=ceph.git;a=blob_plain;f=keys/release.asc"
+end
+
+apt_repository "ceph-fastcgi" do
+  uri "http://gitbuilder.ceph.com/libapache-mod-fastcgi-deb-precise-x86_64-basic/ref/master"
   distribution "precise"
   components ["main"]
   key "https://ceph.com/git/?p=ceph.git;a=blob_plain;f=keys/release.asc"
@@ -81,3 +102,18 @@ perf_packages.each do |pkg|
     options "--no-install-recommends"
   end
 end
+
+apache_packages = %w{
+  apache2
+  apache2-mpm-worker
+  apache2-utils
+  apache2.2-bin
+  apache2.2-common
+}
+
+apache_packages.each do |pkg|
+  package pkg do
+    action: install 
+  end
+end
+
