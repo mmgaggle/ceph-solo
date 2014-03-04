@@ -49,7 +49,7 @@ ceph_packages = %w{
 
 ceph_packages.each do |pkg|
   package pkg do
-    version "0.77-626-g1684f1d-1precise"
+    version "0.77-627-ga7057e1-1precise"
     action :install
     options "--no-install-recommends"
   end
