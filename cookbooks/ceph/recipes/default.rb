@@ -113,7 +113,12 @@ apache_packages = %w{
 
 apache_packages.each do |pkg|
   package pkg do
+    version "2.2.22-2precise.ceph"
     action :install 
   end
 end
 
+package "libapache2-mod-fastcgi" do
+  version "2.4.7~0910052141-1-inktank2"
+  action :install
+end
