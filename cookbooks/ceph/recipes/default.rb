@@ -37,10 +37,10 @@ end
 
 apt_repository "cloud-archive" do
   uri "http://ubuntu-cloud.archive.canonical.com/ubuntu/"
-  distribution "precise"
+  distribution "precise-updates/grizzly"
   components ["main"]
   keyserver "keyserver.ubuntu.com"
-  key "0x9DD79A088A55CB8D"
+  key "5EDB1B62EC4926EA"
 end 
 
 ceph_packages = %w{
