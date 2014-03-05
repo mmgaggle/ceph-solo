@@ -120,7 +120,7 @@ apache_packages.each do |pkg|
 end
 
 package "libapache2-mod-fastcgi" do
-  version "2.4.7~0910052141-1-inktank2"
+  version "2.4.7~0910052141-2~bpo70+1.ceph"
   options "--no-install-recommends"
   action :install
 end
