@@ -35,6 +35,14 @@ apt_repository "ceph-fastcgi" do
   key "https://ceph.com/git/?p=ceph.git;a=blob_plain;f=keys/release.asc"
 end
 
+apt_repository "cloud-archive" do
+  uri "http://ubuntu-cloud.archive.canonical.com/ubuntu/"
+  distribution "precise"
+  components ["main"]
+  keyserver "keyserver.ubuntu.com"
+  key "0x9DD79A088A55CB8D"
+end 
+
 ceph_packages = %w{
   librados2
   librbd1
@@ -82,6 +90,12 @@ kvm_packages.each do |pkg|
     action :install
     options "--no-install-recommends"
   end
+end
+
+group "libvirtd" do
+  action :modify
+  members "ubuntu"
+  append true
 end
 
 perf_packages = %w{
