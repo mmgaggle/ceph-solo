@@ -87,7 +87,7 @@ kvm_packages = %w{
 
 kvm_packages.each do |pkg|
   package pkg do
-    action :install
+    action :upgrade
     options "--no-install-recommends"
   end
 end
@@ -113,7 +113,7 @@ perf_packages = %w{
 perf_packages.each do |pkg|
   package pkg do
     options "--no-install-recommends"
-    action :install
+    action :upgrade
   end
 end
 
@@ -148,7 +148,7 @@ downburst_packages = %w{
 downburst_packages.each do |pkg|
   package pkg do
     options "--no-install-recommends"
-    action :install
+    action :upgrade
   end
 end
 
