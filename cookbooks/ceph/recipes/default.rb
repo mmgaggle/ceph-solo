@@ -7,8 +7,8 @@ apt_repository "ceph" do
   key "https://ceph.com/git/?p=ceph.git;a=blob_plain;f=keys/release.asc"
 end
 
-apt_repository "ceph-gitbuilder" do
-  uri "http://gitbuilder.ceph.com/ceph-deb-precise-x86_64-basic/ref/master"
+apt_repository "firefly-gitbuilder" do
+  uri "http://gitbuilder.ceph.com/ceph-deb-precise-x86_64-basic/ref/firefly"
   distribution "precise"
   components ["main"]
   key "https://ceph.com/git/?p=ceph.git;a=blob_plain;f=keys/release.asc"
@@ -49,7 +49,7 @@ ceph_packages = %w{
 
 ceph_packages.each do |pkg|
   package pkg do
-    version "0.77-627-ga7057e1-1precise"
+    version "0.77-703-g3e21996-1precise"
     action :install
     options "--no-install-recommends"
   end
@@ -98,8 +98,8 @@ perf_packages = %w{
 
 perf_packages.each do |pkg|
   package pkg do
-    action :install
     options "--no-install-recommends"
+    action :install
   end
 end
 
@@ -114,12 +114,14 @@ apache_packages = %w{
 apache_packages.each do |pkg|
   package pkg do
     version "2.2.22-2precise.ceph"
+    options "--no-install-recommends"
     action :install 
   end
 end
 
 package "libapache2-mod-fastcgi" do
   version "2.4.7~0910052141-1-inktank2"
+  options "--no-install-recommends"
   action :install
 end
 
@@ -131,6 +133,7 @@ downburst_packages = %w{
 
 downburst_packages.each do |pkg|
   package pkg do
+    options "--no-install-recommends"
     action :install
   end
 end
@@ -140,5 +143,3 @@ git "/tmp/downburst" do
   revision "master"
   action :sync
 end
-
-
