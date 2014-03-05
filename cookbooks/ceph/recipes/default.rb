@@ -143,3 +143,7 @@ git "/tmp/downburst" do
   revision "master"
   action :sync
 end
+
+execute "bootstrap downburst" do
+  command "cd /tmp/downburst && ./bootstrap"
+end
