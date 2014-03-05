@@ -129,7 +129,7 @@ downburst_packages = %w{
   python-libvirt
 }
 
-downburst_packages do |pkg|
+downburst_packages.each do |pkg|
   package pkg do
     action :install
   end
