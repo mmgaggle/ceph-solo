@@ -122,3 +122,23 @@ package "libapache2-mod-fastcgi" do
   version "2.4.7~0910052141-1-inktank2"
   action :install
 end
+
+downburst_packages = %w{
+  libxml2-dev
+  libxslt1-dev
+  python-libvirt
+}
+
+downburst_packages do |pkg|
+  package pkg do
+    action :install
+  end
+end
+
+git "/tmp/downburst" do
+  repository "https://github.com/ceph/downburst.git"
+  revision "master"
+  action :sync
+end
+
+
