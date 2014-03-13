@@ -8,7 +8,7 @@ apt_repository "glusterfs" do
   key "774BAC4D"
 end
 
-packages = %w{
+gluster_packages = %w{
   glusterfs-common
   glusterfs-dbg
   glusterfs-client
@@ -20,4 +20,8 @@ packages.each do |pkg|
     action :install
     version "3.4.2-ubuntu2~precise6"
   end
+end
+
+package "mdadm" do
+  action :upgrade
 end
