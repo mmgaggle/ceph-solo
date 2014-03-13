@@ -4,7 +4,8 @@ apt_repository "glusterfs" do
   uri "http://ppa.launchpad.net/semiosis/ubuntu-glusterfs-3.4/ubuntu"
   distribution "precise"
   components ["main"]
-  key "http://ppa.launchpad.net/semiosis/ubuntu-glusterfs-3.4/ubuntu/dists/precise/Release.gpg"
+  keyserver "keyserver.ubuntu.com"
+  key "774BAC4D"
 end
 
 packages = %w{
@@ -14,6 +15,9 @@ packages = %w{
   glusterfs-server
 }
 
-package "glusterfs-client" do
-  action :install
+packages.each |pkg| do
+  package pkg do
+    action :install
+    version "3.4.2-ubuntu2~precise6"
+  end
 end
