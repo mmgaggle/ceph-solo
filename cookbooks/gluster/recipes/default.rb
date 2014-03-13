@@ -15,7 +15,7 @@ packages = %w{
   glusterfs-server
 }
 
-packages.each |pkg| do
+packages.each do |pkg|
   package pkg do
     action :install
     version "3.4.2-ubuntu2~precise6"
