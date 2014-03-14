@@ -98,25 +98,6 @@ group "libvirtd" do
   append true
 end
 
-perf_packages = %w{
-  collectl
-  lldpd
-  strace
-  lsof
-  iotop
-  sysstat
-  iperf
-  fio
-  git
-}
-
-perf_packages.each do |pkg|
-  package pkg do
-    options "--no-install-recommends"
-    action :upgrade
-  end
-end
-
 apache_packages = %w{
   apache2
   apache2-mpm-worker
