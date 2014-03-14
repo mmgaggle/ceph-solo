@@ -21,7 +21,3 @@ gluster_packages.each do |pkg|
     version "3.4.2-ubuntu2~precise6"
   end
 end
-
-package "mdadm" do
-  action :upgrade
-end
