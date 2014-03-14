@@ -9,6 +9,6 @@ file_cache_path "/var/chef-solo"
 cookbook_path "/var/chef-solo/cookbooks"
 EOF
 sudo mv /tmp/solo.rb /etc/chef/solo.rb
-git clone https://github.com/mmgaggle/ceph-solo.git /tmp/ceph-solo.git
-sudo ln -s /tmp/ceph-solo.git/cookbooks /var/chef-solo/cookbooks
-sudo chef-solo -o 'recipe[gluster]'
+git clone https://github.com/mmgaggle/cbtcfg.git /tmp/cbtcfg.git
+sudo ln -s /tmp/cbtcfg.git/cookbooks /var/chef-solo/cookbooks
+sudo chef-solo -o 'recipe[tools],recipe[gluster],recipe[downburst]'
