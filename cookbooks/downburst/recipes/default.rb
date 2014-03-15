@@ -2,7 +2,7 @@ include_recipe "apt"
 
 apt_repository "cloud-archive" do
   uri "http://ubuntu-cloud.archive.canonical.com/ubuntu/"
-  distribution "precise-updates/grizzly"
+  distribution "precise-updates/icehouse"
   components ["main"]
   keyserver "keyserver.ubuntu.com"
   key "5EDB1B62EC4926EA"
