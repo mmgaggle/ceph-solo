@@ -10,7 +10,7 @@ end
 
 apt_repository "glusterfs-qemu" do
   uri "http://ppa.launchpad.net/semiosis/ubuntu-qemu-glusterfs/ubuntu"
-  distribution "precise"
+  distribution "saucy"
   components ["main"]
   keyserver "keyserver.ubuntu.com"
   key "774BAC4D"
