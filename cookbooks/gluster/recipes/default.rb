@@ -8,6 +8,14 @@ apt_repository "glusterfs" do
   key "774BAC4D"
 end
 
+apt_repository "glusterfs-qemu" do
+  uri "http://ppa.launchpad.net/semiosis/ubuntu-qemu-glusterfs-3.4/ubuntu"
+  distribution "precise"
+  components ["main"]
+  keyserver "keyserver.ubuntu.com"
+  key "774BAC4D"
+end
+
 gluster_packages = %w{
   glusterfs-common
   glusterfs-dbg
