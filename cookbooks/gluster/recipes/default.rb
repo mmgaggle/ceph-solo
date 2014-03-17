@@ -9,7 +9,7 @@ apt_repository "glusterfs" do
 end
 
 apt_repository "glusterfs-qemu" do
-  uri "http://ppa.launchpad.net/semiosis/ubuntu-qemu-glusterfs-3.4/ubuntu"
+  uri "http://ppa.launchpad.net/semiosis/ubuntu-qemu-glusterfs/ubuntu"
   distribution "precise"
   components ["main"]
   keyserver "keyserver.ubuntu.com"
