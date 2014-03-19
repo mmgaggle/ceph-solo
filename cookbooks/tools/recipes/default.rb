@@ -1,5 +1,17 @@
-include_recipe "apt"
-include_recipe "yum"
+include_recipe "chef-sugar::default"
+
+if ubuntu?
+  include_recipe "apt"
+elsif centos?
+  include_recipe "yum"
+  remote_file "/tmp/epel-release-6-8.noarch.rpm" do
+    source "http://mirror.pnl.gov/epel/6/i386/epel-release-6-8.noarch.rpm"
+  end
+  rpm_package "epel" do
+    source "/tmp/epel-release-6-8.noarch.rpm"
+    action :install
+  end
+end
 
 packages = %w{
   collectl
@@ -15,7 +27,9 @@ packages = %w{
 
 packages.each do |pkg|
   package pkg do
-    options "--no-install-recommends"
+    if ubuntu?
+      options "--no-install-recommends"
+    end
     action :upgrade
   end
 end
