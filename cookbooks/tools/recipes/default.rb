@@ -2,6 +2,9 @@ include_recipe "chef-sugar::default"
 
 if ubuntu?
   include_recipe "apt"
+  pacakge "lldpd" do
+    action :upgrade
+  end
 elsif centos?
   include_recipe "yum::default"
   remote_file "/tmp/epel-release-6-8.noarch.rpm" do
@@ -11,11 +14,13 @@ elsif centos?
     source "/tmp/epel-release-6-8.noarch.rpm"
     action :install
   end
+  package "lldpad" do
+    action :upgrade
+  end
 end
 
 packages = %w{
   collectl
-  lldpd
   strace
   lsof
   iotop
