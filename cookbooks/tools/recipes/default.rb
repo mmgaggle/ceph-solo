@@ -3,7 +3,7 @@ include_recipe "chef-sugar::default"
 if ubuntu?
   include_recipe "apt"
 elsif centos?
-  include_recipe "yum"
+  include_recipe "yum::default"
   remote_file "/tmp/epel-release-6-8.noarch.rpm" do
     source "http://mirror.pnl.gov/epel/6/i386/epel-release-6-8.noarch.rpm"
   end
