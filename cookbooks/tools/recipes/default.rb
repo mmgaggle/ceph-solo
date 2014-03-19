@@ -6,7 +6,6 @@ if ubuntu?
     action :upgrade
   end
 elsif centos?
-  include_recipe "yum::default"
   remote_file "/tmp/epel-release-6-8.noarch.rpm" do
     source "http://mirror.pnl.gov/epel/6/i386/epel-release-6-8.noarch.rpm"
   end
