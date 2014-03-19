@@ -5,6 +5,6 @@ description      "Installs/Configures GlusterFS"
 long_description IO.read(File.join(File.dirname(__FILE__), 'README.md'))
 version          "1.0.0"
 
-%w{ apt ntp }.each do |cookbook|
+%w{ apt ntp yum }.each do |cookbook|
   depends cookbook
 end
