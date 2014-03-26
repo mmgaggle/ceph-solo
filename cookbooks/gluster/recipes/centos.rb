@@ -1,4 +1,4 @@
-include_recipe "apt"
+include_recipe "yum"
 
 yum_repository 'gluster' do
   description 'Gluster "I don\'t wanna bother with GPG" package repo'

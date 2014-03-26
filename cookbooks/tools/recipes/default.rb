@@ -2,7 +2,7 @@ include_recipe "chef-sugar::default"
 
 if ubuntu?
   include_recipe "apt"
-  pacakge "lldpd" do
+  package "lldpd" do
     action :upgrade
   end
 elsif centos?
