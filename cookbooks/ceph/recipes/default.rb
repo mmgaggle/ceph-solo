@@ -7,8 +7,8 @@ apt_repository "ceph" do
   key "https://ceph.com/git/?p=ceph.git;a=blob_plain;f=keys/release.asc"
 end
 
-apt_repository "firefly-gitbuilder" do
-  uri "http://gitbuilder.ceph.com/ceph-deb-precise-x86_64-basic/ref/firefly"
+apt_repository "master-gitbuilder" do
+  uri "http://gitbuilder.ceph.com/ceph-deb-precise-x86_64-basic/ref/master"
   distribution "precise"
   components ["main"]
   key "https://ceph.com/git/?p=ceph.git;a=blob_plain;f=keys/release.asc"
@@ -57,7 +57,7 @@ ceph_packages = %w{
 
 ceph_packages.each do |pkg|
   package pkg do
-    version "0.77-734-g9d387d3-1precise"
+    version "0.78-338-g3f47f9e-1precise"
     action :install
     options "--no-install-recommends"
   end
