@@ -27,6 +27,7 @@ packages = %w{
   iperf
   fio
   git
+  screen
 }
 
 packages.each do |pkg|
