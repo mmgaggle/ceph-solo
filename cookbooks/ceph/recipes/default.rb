@@ -7,7 +7,7 @@ apt_repository "ceph" do
   key "https://ceph.com/git/?p=ceph.git;a=blob_plain;f=keys/release.asc"
 end
 
-apt_repository "gitbuilder-master"
+apt_repository "gitbuilder-master" do
   uri "http://gitbuilder.ceph.com/ceph-deb-precise-x86_64-basic/ref/master"
   distribution "precise"
   components ["main"]
