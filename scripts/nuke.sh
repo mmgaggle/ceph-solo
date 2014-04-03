@@ -1,9 +1,9 @@
 #!/bin/bash
 echo " + stopping /dev/md0"
-sudo mdadm --manage /dev/md0 -S
+sudo mdadm --stop /dev/md0
 
 echo " + removing /dev/md0"
-sudo mdadm --manage /dev/md0 -r
+grep 3907018584 /proc/partitions | awk '{print $4}' | xargs -n1 -I '{}' sudo mdadm --zero-superblock /dev/'{}1'
 
 echo " + removing gpt partitions"
 for i in $( grep 3907018584 /proc/partitions | awk '{print $4}' );do 
@@ -14,4 +14,5 @@ echo " + tell kernel to re-read partition tables"
 for i in $( grep 3907018584 /proc/partitions | awk '{print $4}' );do
   sudo sfdisk -R /dev/$i
 done
+
 
