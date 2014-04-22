@@ -1,7 +1,7 @@
 include_recipe "ceph::deploy"
 
 ceph_deploy "install" do
-  dev "--dev"
+  dev "--dev firefly"
   nodes ["burnupi11","burnupi14","burnupi15","burnpui47","rhoda001","rhoda002","rhoda003","rhoda004"]
   action :install
 end
