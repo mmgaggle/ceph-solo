@@ -10,6 +10,7 @@ action :install do
       command("ceph-deploy install #{new_resource.dev} #{new_resource.nodes.join(' ')}")
       user "ubuntu"
       cwd "/home/ubuntu/"
+      environment {"USER" => "ubuntu"}
     end
     Chef::Log.info("Ceph installed on #{new_resource.nodes}")
   end
