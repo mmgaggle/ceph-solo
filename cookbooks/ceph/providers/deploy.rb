@@ -9,6 +9,7 @@ action :install do
     execute "ceph deploy install" do
       command("ceph-deploy install #{new_resource.dev} #{new_resource.nodes.join(' ')}")
       user "ubuntu"
+      cwd "/home/ubuntu/"
     end
     Chef::Log.info("Ceph installed on #{new_resource.nodes}")
   end
@@ -19,6 +20,7 @@ action :new do
     execute "ceph deploy new" do
       command("ceph-deploy new #{new_resource.host_zero}")
       user "ubuntu"
+      cwd "/home/ubuntu/"
     end
     Chef::Log.info("Ceph cluster created, host zero: '#{new_resource.host_zero}'")
   end
@@ -29,6 +31,7 @@ action :mon do
     execute "ceph deploy mon create" do
       command("ceph-deploy mon create #{new_resource.monitor}")
       user "ubuntu"
+      cwd "/home/ubuntu/"
     end
     Chef::Log.info("Ceph monitor created on '#{new_resource.monitor}'")
   end
@@ -39,6 +42,7 @@ action :gatherkeys do
     execute "ceph deploy gatherkeys" do
       command("ceph-deploy gatherkeys #{new_resource.monitor}")
       user "ubuntu"
+      cwd "/home/ubuntu/"
     end
     Chef::Log.info("CephX keys gathered")
   end
