@@ -7,7 +7,7 @@ end
 action :install do
   converge_by("Install ceph on '#{new_resource.name}'") do
     execute "ceph deploy install" do
-      command("ceph-deploy install --username=ubuntu #{new_resource.dev} #{new_resource.nodes.join(' ')}")
+      command("ceph-deploy install --username ubuntu #{new_resource.dev} #{new_resource.nodes.join(' ')}")
       user "ubuntu"
       cwd "/home/ubuntu"
       environment({"USER" => "ubuntu"})
