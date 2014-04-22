@@ -4,8 +4,8 @@ def whyrun_supported?
   true
 end
 
-action :create do
-  converge_by("Creating erasure profile '#{new_resource.name}'") do
+action :set do
+  converge_by("Setting erasure profile '#{new_resource.name}'.") do
     execute "create erasure profile" do
       not_if "ceph osd erasure-code-profile ls | grep -q '^#{new_resource.name}$'"
       command("ceph osd erasure-code-profile set #{new_resource.name} \
@@ -15,11 +15,11 @@ action :create do
                  plugin=#{new_resource.plugin} \
                  technique=#{new_resource.technique}")
     end
-    Chef::Log.info("Created erasure profile '#{new_resource.name}'")
+    Chef::Log.info("Erasure profile '#{new_resource.name}' set.")
   end
 end
 
-action :delete do
+action :rm do
   converge_by("Deleting erasure profile '#{new_resource.name}'") do
     execute "delete erasure profile" do
       only_if "ceph erasure-code-profile ls | grep -q '^#{new_resource.name}$'"

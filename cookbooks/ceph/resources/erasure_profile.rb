@@ -1,5 +1,5 @@
- actions :create, :delete
- default_action :create
+ actions :set, :rm
+ default_action :set
  attribute :name, :kind_of => String, :name_attribute => true
  attribute :k, :kind_of => Integer
  attribute :m, :kind_of => Integer
