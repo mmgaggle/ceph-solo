@@ -1,6 +1,3 @@
-fail "fsid must be set in config" if node['ceph']['fsid'].nil?
-fail "mon_initial_members must be set in config" if node['ceph']['config']['mon_initial_members']
-
 directory "/etc/ceph" do
   owner "root"
   group "root"
