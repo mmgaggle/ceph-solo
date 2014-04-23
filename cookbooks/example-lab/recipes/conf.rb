@@ -2,6 +2,7 @@ fsid = %x{
     grep fsid /home/ubuntu/ceph.conf | cut -d= -f2 | awk '{print $1}'
 }
 
+node.default["ceph"]["is_radosgw"] = false
 node.default["ceph"]["config"] = {
   "fsid" => fsid,
   "mon_initial_members" => "burnupi11",
