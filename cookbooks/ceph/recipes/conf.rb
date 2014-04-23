@@ -7,8 +7,7 @@ end
 
 template "/etc/ceph/ceph.conf" do
   source "ceph.conf.erb"
-  variables(
-    :is_rgw => node['ceph']['is_radosgw']
-  )
+  owner "root"
+  groupt "root"
   mode "0644"
 end
