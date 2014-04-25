@@ -34,7 +34,7 @@ action :mon do
       command("ceph-deploy mon create #{new_resource.monitor}")
       user "ubuntu"
       cwd "/home/ubuntu"
-      environment({"LOGNAME" => "ubuntu"})
+      environment({"USER" => "ubuntu","LOGNAME" => "ubuntu"})
     end
     Chef::Log.info("Ceph monitor created on '#{new_resource.monitor}'")
   end
