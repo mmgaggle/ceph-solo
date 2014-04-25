@@ -8,6 +8,6 @@ end
 template "/etc/ceph/ceph.conf" do
   source "ceph.conf.erb"
   owner "root"
-  groupt "root"
+  group "root"
   mode "0644"
 end
